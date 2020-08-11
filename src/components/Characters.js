@@ -1,5 +1,5 @@
 import React from 'react';
-import Forms from './Forms';
+import Forms from './FormsCharacter';
 
 const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
 

@@ -2,6 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SortingHat from './components/SortingHat';
 import Characters from './components/Characters';
+import Spells from './components/Spells';
+import Houses from './components/Houses';
+import MediaCard from './components/spare';
+import RecipeReviewCard from './components/spare1';
 
 class App extends React.Component {
 
@@ -16,6 +20,10 @@ class App extends React.Component {
         <Switch>
           <Route path="/sortingHat" excat component={SortingHat} />
           <Route path="/characters" excat component={Characters} />
+          <Route path="/spells" excat component={Spells} />
+          <Route path="/houses" excat component={Houses} />
+          <Route path="/spare" excat component={MediaCard} />
+          <Route path="/spare1" excat component={RecipeReviewCard} />
         </Switch>
       </div>
       </Router>

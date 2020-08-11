@@ -1,1 +1,10 @@
-//
+.container{
+	margin:20px;
+}
+
+.Card_css{
+	display: inline-block;
+	margin:2%;
+	min-width: 300px;
+	max-width: 300px;
+}
