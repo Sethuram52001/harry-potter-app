@@ -1,10 +1,14 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import Forms from './FormsCharacter';
 
 const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
 
+var arr = [];
+
 async function getCharacters(e){
 	e.preventDefault();
+	arr.length = 0;
 	//const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
 	const characters = e.target.elements.character.value;
 	const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
@@ -12,35 +16,37 @@ async function getCharacters(e){
 	const api_call = await fetch(api_url);
 	const data = await api_call.json();
 	console.log(data);
-	console.log(data[0].name);
-	console.log(data[0].role);
-	console.log(data[0].bloodStatus);
-	console.log(data[0].ministryOfMagic);
-	console.log(data[0].orderOfThePhoenix);
-	console.log(data[0].dumbledoresArmy);
-	console.log(data[0].school);
-	console.log(data[0].wand);
-	console.log(data[0].house);
+	arr.push(data[0].name);
+	arr.push(data[0].role);
+	arr.push(data[0].bloodStatus);
+	arr.push(data[0].ministryOfMagic);
+	arr.push(data[0].orderOfThePhoenix);
+	arr.push(data[0].dumbledoresArmy);
+	arr.push(data[0].school);
+	arr.push(data[0].wand);
+	arr.push(data[0].house);
+	console.log(arr);
 }
 
 const Characters = () => {
+
+	const [charDetails, setCharDetails] = useState([]);
+	useEffect(() =>{
+		setCharDetails(arr);
+	});
+
   return (
     <div>
     	<h1>Characters page</h1>
-    	<Forms getCharacters={getCharacters} ></Forms>
+    	<Forms getCharacters={ getCharacters } ></Forms>
+    	{charDetails}
     </div>
   )
 }
 
 export default Characters;
 
-// const city = e.target.elements.city.value;
-/*
-    	<button onClick={getCharacters}>click</button>
-    	<form onSubmit={getCharacters}>
-    		<input type="text" name="nameEnterd" placeholder="Enter the character's name"></input>
-    	</form>
-*/
+
 /*
 bloodStatus: "half-blood"
 boggart: "Ariana (sister)"
@@ -55,4 +61,16 @@ role: "Headmaster, Hogwarts"
 school: "Hogwarts School of Witchcraft and Wizardry"
 species: "human"
 wand: "Elder, 15", th
+*/
+
+/*
+	console.log(data[0].name);
+	console.log(data[0].role);
+	console.log(data[0].bloodStatus);
+	console.log(data[0].ministryOfMagic);
+	console.log(data[0].orderOfThePhoenix);
+	console.log(data[0].dumbledoresArmy);
+	console.log(data[0].school);
+	console.log(data[0].wand);
+	console.log(data[0].house);
 */
