@@ -1,226 +1,209 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Box from '@material-ui/core/Box';
+/*import React from 'react';
+import { useState, useEffect } from 'react';
+import Forms from './FormsCharacter';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 300,
-    margin: 10,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-}));
+const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
 
+var arr = [];
+var array = [];
 
+async function getCharacters(e){
+  e.preventDefault();
+  arr.length = 0;
+  //const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
+  const characters = e.target.elements.character.value;
+  const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
+  //const data = await fetch(api_url).then(api_call => api_call.json());
+  const api_call = await fetch(api_url);
+  const data = await api_call.json();
+  console.log(data);
+  arr.push(data[0].name);
+  arr.push(data[0].role);
+  arr.push(data[0].bloodStatus);
+  arr.push(data[0].ministryOfMagic);
+  arr.push(data[0].orderOfThePhoenix);
+  arr.push(data[0].dumbledoresArmy);
+  arr.push(data[0].school);
+  arr.push(data[0].wand);
+  arr.push(data[0].house);
+  console.log(arr);
+  array = [1,2,3,4,5];
+}
 
+const Characters = () => {
 
-export default function RecipeReviewCard() {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [charDetails, setCharDetails] = useState([0]);
+  useEffect(() =>{
+    //setCharDetails(arr);
+    setCharDetails(...array, ...charDetails);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  },[]);
 
   return (
-    < >      
-    <Card className={classes.root} className="Card_css">
-      <CardHeader title="Gryffindor" />
-      <CardMedia className={classes.media} image="https://p1.hiclipart.com/preview/542/343/666/harry-potter-gryffindor-logo-thumbnail.jpg" title="Paella dish" />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          "You might belong in Gryffindor,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Where dwell the brave at heart,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Their daring, nerve, and chivalry
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Set Gryffindors apart"
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-   
-    <Card className={classes.root} className="Card_css" >
-      <CardHeader title="Ravenclaw" />
-      <CardMedia className={classes.media} image="https://p7.hiclipart.com/preview/563/589/122/ravenclaw-house-fictional-universe-of-harry-potter-common-room-hogwarts-gryffindor-harry-potter-ravenclaw-thumbnail.jpg" title="Paella dish" />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          "Or yet in wise old Ravenclaw,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          If you've a ready mind,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Where those of wit and learning,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Will always find their kind."
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
- 
-    <Card className={classes.root} className="Card_css" >
-      <CardHeader title="Hufflepuff" />
-      <CardMedia className={classes.media} image="https://i.etsystatic.com/14544289/r/il/45d0d7/1151116662/il_570xN.1151116662_mj8q.jpg" title="Paella dish" />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          "You might belong in Hufflepuff,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Where they are just and loyal,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Those patient Hufflepuffs are true,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          And unafraid of toil."
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-   
-      <Card className={classes.root} className="Card_css" >
-      <CardHeader title="Slytherin" />
-      <CardMedia className={classes.media} image="https://www.dictionary.com/e/wp-content/uploads/2018/03/Slytherin-300x300.jpg" title="Paella dish" />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          "Or perhaps in Slytherin,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          You'll make your real friends,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Those cunning folk use any means,
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          To achieve their ends."
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-    </ >
-  );
+    <div>
+      <h1>Characters page</h1>
+      <Forms getCharacters={ getCharacters } ></Forms>
+      <p>{charDetails}</p>
+    </div>
+  )
 }
+
+export default Characters;
+
+
+/*
+  const [charDetails, setCharDetails] = useState([0]);
+  useEffect(() =>{
+    //setCharDetails(arr);
+    setCharDetails(...array, ...charDetails);
+    
+  },[]);
+*/
+/*
+bloodStatus: "half-blood"
+boggart: "Ariana (sister)"
+deathEater: false
+dumbledoresArmy: false
+house: "Gryffindor"
+ministryOfMagic: true
+name: "Albus Dumbledore"
+orderOfThePhoenix: true
+patronus: "phoenix"
+role: "Headmaster, Hogwarts"
+school: "Hogwarts School of Witchcraft and Wizardry"
+species: "human"
+wand: "Elder, 15", th
+*/
+
+/*
+  console.log(data[0].name);
+  console.log(data[0].role);
+  console.log(data[0].bloodStatus);
+  console.log(data[0].ministryOfMagic);
+  console.log(data[0].orderOfThePhoenix);
+  console.log(data[0].dumbledoresArmy);
+  console.log(data[0].school);
+  console.log(data[0].wand);
+  console.log(data[0].house);
+*/
+import React from 'react';
+
+import Forms from './FormsCharacter';
+
+const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
+
+var arr = [];
+
+class Characters extends React.Component {
+
+  state = {
+    array: [undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined]
+  }
+
+  getCharacters = async (e) => {
+    e.preventDefault();
+    arr.length = 0;
+    //const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
+    const characters = e.target.elements.character.value;
+    const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
+    //const data = await fetch(api_url).then(api_call => api_call.json());
+    const api_call = await fetch(api_url);
+    const data = await api_call.json();
+    console.log(data);
+    arr.push(data[0].name);
+    arr.push(data[0].role);
+    arr.push(data[0].alias);
+    arr.push(data[0].bloodStatus);
+    arr.push(data[0].ministryOfMagic);
+    arr.push(data[0].orderOfThePhoenix);
+    arr.push(data[0].dumbledoresArmy);
+    arr.push(data[0].school);
+    arr.push(data[0].wand);
+    arr.push(data[0].house);
+    arr.push(data[0].patronus);
+    arr.push(data[0].boggart);
+    arr.push(data[0].deathEater);
+    console.log(arr);
+    this.setState({
+      array: arr 
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Characters page</h1>
+          <Forms getCharacters={ this.getCharacters } ></Forms>
+          <p>Name: {this.state.array[0]}</p>
+          <p>Role: {this.state.array[1]}</p>
+          <p>Alias: {this.state.array[2]}</p>
+          <p>Blood status: {this.state.array[3]}</p>
+          <p>Ministry of Magic: {this.state.array[4]}</p>
+          <p>Order of Phoenix: {this.state.array[5]}</p>
+          <p>Dumbledore's army: {this.state.array[6]}</p>
+          <p>School: {this.state.array[7]}</p>
+          <p>Wand: {this.state.array[8]}</p>
+          <p>House: {this.state.array[9]}</p>
+          <p>Patronus: {this.state.array[10]}</p>
+          <p>Boggart: {this.state.array[11]}</p>
+          <p>Death eater: {this.state.array[12]}</p>
+      </div>
+    );
+  }
+}
+
+export default Characters;
+
+/*const Characters = () => {
+
+  const [charDetails, setCharDetails] = useState([0]);
+  useEffect(() =>{
+    //setCharDetails(arr);
+    setCharDetails(...array, ...charDetails);
+
+  },[]);
+
+  return (
+    <div>
+      <h1>Characters page</h1>
+      <Forms getCharacters={ getCharacters } ></Forms>
+      <p>{charDetails}</p>
+    </div>
+  )
+}*/
+
+/*
+  const [charDetails, setCharDetails] = useState([0]);
+  useEffect(() =>{
+    //setCharDetails(arr);
+    setCharDetails(...array, ...charDetails);
+    
+  },[]);
+*/
+/*
+bloodStatus: "half-blood"
+boggart: "Ariana (sister)"
+deathEater: false
+dumbledoresArmy: false
+house: "Gryffindor"
+ministryOfMagic: true
+name: "Albus Dumbledore"
+orderOfThePhoenix: true
+patronus: "phoenix"
+role: "Headmaster, Hogwarts"
+school: "Hogwarts School of Witchcraft and Wizardry"
+species: "human"
+wand: "Elder, 15", th
+*/
+
+/*
+  console.log(data[0].name);
+  console.log(data[0].role);
+  console.log(data[0].bloodStatus);
+  console.log(data[0].ministryOfMagic);
+  console.log(data[0].orderOfThePhoenix);
+  console.log(data[0].dumbledoresArmy);
+  console.log(data[0].school);
+  console.log(data[0].wand);
+  console.log(data[0].house);
+*/

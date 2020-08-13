@@ -14,8 +14,7 @@ const useStyles = makeStyles((theme) => ({
 	buttonStyle: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 0,
-    //margin: '45%',
-    borderRadius: 3,
+    borderRadius: 5,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
     height: 48,
@@ -45,15 +44,12 @@ const SortingHat = () => {
     			Scroll to Hide App Bar
     		</Typography>
     	</AppBar>
-    	<img src={sorting_hat_img} alt="sorting hat" />
-    	<Box mx="auto">
-    		<Button variant="contained" className={`${classes.buttonStyle}`} onClick={() => click_ref.current()}>
+    	<img className="sorting_hat_img" src={sorting_hat_img} alt="sorting hat" />
+    	<Box>
+    		<Button variant="contained" className="sortButton"  className={`${classes.buttonStyle}`} onClick={() => click_ref.current()}>
     			Sort
     		</Button>
     	</Box>
-    	<Box mx="auto" bgcolor="background.paper" p={1}>
-        Centered element
-        </Box>
     	<p>{house}</p>
     </div>
   )

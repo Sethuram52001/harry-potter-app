@@ -22,7 +22,7 @@ import SlytherinImg from '../images/slytherin_img.jpg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 300,
+    maxWidth: 300, 
   },
   media: {
     height: 200,
@@ -51,70 +51,73 @@ const Houses = () => {
 
   return (
     <div>
-    	<h1>Hogwarts Houses</h1>
-    	<h3>House systems</h3>
+    	<h1 className="Houses_title">Hogwarts Houses</h1>
+    	<h2 className="Houses_subtitle">House systems</h2>
+      <Card className="Houses_intro">
     	<p>Houses at Hogwarts were both the living and learning communities for its students. 
     	  Each year's group of students in the same House shares the same dormitory and many classes. 
     	  The houses compete throughout the school year, by earning and losing points for behaviour.
     	  The House with the most points wins the House Cup. Each House also has its own Quidditch team 
     	  that competes for the Inter-House Quidditch Cup. These two competitions breed rivalries between the Houses,
     	  the greatest of which is that between Gryffindor and Slytherin.</p>
-    	<Card className={classes.root} className="Card_css">
-      		<CardHeader title="Gryffindor" />
-      		<CardMedia className={classes.media} image={GryffindorImg} title="GryffindorImg" />
-      		<CardContent>
-        		<Typography variant="body2" color="textSecondary" component="p">
-          		"You might belong in Gryffindor,
-        		</Typography>
-        		<Typography variant="body2" color="textSecondary" component="p">
-          		Where dwell the brave at heart,
-        		</Typography>
-        		<Typography variant="body2" color="textSecondary" component="p">
-          		Their daring, nerve, and chivalry
-        		</Typography>
-        		<Typography variant="body2" color="textSecondary" component="p">
-          		Set Gryffindors apart"
-        		</Typography>
-      		</CardContent>
-      		<CardActions disableSpacing>
-        		<IconButton
-          		className={clsx(classes.expand, {
-            	[classes.expandOpen]: expanded,
-          		})}
-          		onClick={handleExpandClick}
-          		aria-expanded={expanded}
-          		aria-label="show more"
-        		>
-          		<ExpandMoreIcon />
-        		</IconButton>
-      		</CardActions>
-      		<Collapse in={expanded} timeout="auto" unmountOnExit>
-        	<CardContent>
-          	<Typography paragraph>Details</Typography>
-          	<Typography paragraph>
-            Founder: Goderic Gryffindor
-          	</Typography>
-          	<Typography paragraph>
-            Head of House: Minerva McGonagall
-          	</Typography>
-          	<Typography paragraph>
-          	Values: Courage, Bravery, Nerve, Chivalry 
-          	</Typography>
-          	<Typography paragraph>
-          	Animal: Lion
-          	</Typography>
-          	<Typography paragraph>
-          	Colors: Scarlet and Gold
-          	</Typography>
-          	<Typography paragraph>
-          	House Ghost: Nearly Headless Nick
-          	</Typography>    
-          	<Typography paragraph>
-          	Common room: Gryffindor Tower
-          	</Typography>       	
-        	</CardContent>
-      		</Collapse>
     	</Card>
+
+      <Card className={classes.root} className="Card_css">
+          <CardHeader title="Gryffindor" />
+          <CardMedia className={classes.media} image={GryffindorImg} title="GryffindorImg" />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              "You might belong in Gryffindor,
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Where dwell the brave at heart,
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Their daring, nerve, and chivalry,
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Set Gryffindors apart."
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton
+              className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Details</Typography>
+            <Typography paragraph>
+            Founder: Goderic Gryffindor
+            </Typography>
+            <Typography paragraph>
+            Head of House: Minerva McGonagall
+            </Typography>
+            <Typography paragraph>
+            Values: Courage, Bravery, Nerve, Chivalry  
+            </Typography>
+            <Typography paragraph>
+            Animal: Lion
+            </Typography>
+            <Typography paragraph>
+            Colors: Scarlet and Gold
+            </Typography>
+            <Typography paragraph>
+            House Ghost: Nearly Headless Nick
+            </Typography>    
+            <Typography paragraph>
+            Common room: Gryffindor Tower
+            </Typography>         
+          </CardContent>
+          </Collapse>
+      </Card>
 
     	<Card className={classes.root} className="Card_css">
       		<CardHeader title="Ravenclaw" />

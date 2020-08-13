@@ -4,7 +4,58 @@
 
 .Card_css{
 	display: inline-block;
-	margin:2%;
+	margin-left:10%;
+	margin-right: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	min-width: 350px;
 	max-width: 350px;
 }
+
+@media only screen and (max-width: 600px) {
+.Card_css{
+    display: block;
+    margin: 5%;
+  }
+}
+
+.Houses_title{
+	background-color: black;
+	color: white;
+	margin-top: 0;
+	padding: 5px;
+}
+
+.Houses_intro{
+	max-width: 90%;
+	margin-left: 4%;
+	padding: 1%;
+	text-align: justify;
+}
+
+.Characters_card{
+	margin: 5% auto;
+	max-width: 500px;
+	padding: 1%;
+}
+
+.Spells_card{
+	/*max-width: 500px;*/
+	width: 40%;
+	padding: 1%;
+	min-width: 300px;
+	margin:5% auto;
+}
+
+.sorting_hat_img{
+  	display: block;
+  	margin: 5%;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 40%;
+}
+
+.sortButton{
+	margin: 0 auto;
+}
+

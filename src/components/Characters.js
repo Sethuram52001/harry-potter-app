@@ -1,45 +1,84 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import {useState,useEffect,useRef} from 'react';
 import Forms from './FormsCharacter';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import HarryPotterCharacters from '../images/harry-potter-characters.jpg';
 
 const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
 
 var arr = [];
 
-async function getCharacters(e){
-	e.preventDefault();
-	arr.length = 0;
-	//const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
-	const characters = e.target.elements.character.value;
-	const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
-	//const data = await fetch(api_url).then(api_call => api_call.json());
-	const api_call = await fetch(api_url);
-	const data = await api_call.json();
-	console.log(data);
-	arr.push(data[0].name);
-	arr.push(data[0].role);
-	arr.push(data[0].bloodStatus);
-	arr.push(data[0].ministryOfMagic);
-	arr.push(data[0].orderOfThePhoenix);
-	arr.push(data[0].dumbledoresArmy);
-	arr.push(data[0].school);
-	arr.push(data[0].wand);
-	arr.push(data[0].house);
-	console.log(arr);
-}
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 300, 
+  }
+}));
+
+const BackgroundImage = {
+  width: "100%",
+  height: "720px",
+  backgroundImage: `url(${HarryPotterCharacters})`,
+  backgroundRepeat: "noRepeat",
+};
 
 const Characters = () => {
 
-	const [charDetails, setCharDetails] = useState([]);
-	useEffect(() =>{
-		setCharDetails(arr);
-	});
+	const click_ref = useRef(null);
+	const [array, setArray] = useState([]);
+	const classes = useStyles();
+
+ 	async function getCharacters(e) {
+		e.preventDefault();
+		arr.length = 0;
+		//const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
+		const characters = e.target.elements.character.value;
+		const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
+		const data = await fetch(api_url).then(api_call => api_call.json()).catch((error)=>{console.log(error);});
+		//const api_call = await fetch(api_url);
+		//const data = await api_call.json();
+		console.log(data);
+		arr.push(data[0].name);
+		arr.push(data[0].role);
+		arr.push(data[0].alias);
+		arr.push(data[0].bloodStatus);
+		data[0].ministryOfMagic ? arr.push("Member") : arr.push("Not a member");
+		data[0].orderOfThePhoenix ? arr.push("Member") : arr.push("Not a member");
+		data[0].dumbledoresArmy ? arr.push("Member") : arr.push("Not a member");
+		arr.push(data[0].school);
+		arr.push(data[0].wand);
+		arr.push(data[0].house);
+		arr.push(data[0].patronus);
+		arr.push(data[0].boggart);
+		data[0].deathEater ? arr.push("Member") : arr.push("Not a member");
+		console.log(arr);
+		setArray(arr);
+ 	}
+
+ 	click_ref.current = getCharacters; 
 
   return (
     <div>
     	<h1>Characters page</h1>
+    	<div style={ BackgroundImage }>
+        {/*<img src={HarryPotterCharacters} />*/}
     	<Forms getCharacters={ getCharacters } ></Forms>
-    	{charDetails}
+    	<Card className={classes.root} className="Characters_card">	
+    	<p>Name: {array[0]}</p>
+    	<p>Role: {array[1]}</p>
+    	<p>Alias: {array[2]}</p>
+    	<p>Blood status: {array[3]}</p>
+    	<p>Ministry of Magic: {array[4]}</p>
+    	<p>Order of Phoenix: {array[5]}</p>
+    	<p>Dumbledore's army: {array[6]}</p>
+    	<p>School: {array[7]}</p>
+    	<p>Wand: {array[8]}</p>
+    	<p>House: {array[9]}</p>
+    	<p>Patronus: {array[10]}</p>
+    	<p>Boggart: {array[11]}</p>
+    	<p>Death eater: {array[12]}</p>
+    	</Card>
+    	</div>
     </div>
   )
 }
@@ -47,6 +86,15 @@ const Characters = () => {
 export default Characters;
 
 
+
+/*
+	const [charDetails, setCharDetails] = useState([0]);
+	useEffect(() =>{
+		//setCharDetails(arr);
+		setCharDetails(...array, ...charDetails);
+		
+	},[]);
+*/
 /*
 bloodStatus: "half-blood"
 boggart: "Ariana (sister)"

@@ -4,6 +4,7 @@ import SortingHat from './components/SortingHat';
 import Characters from './components/Characters';
 import Spells from './components/Spells';
 import Houses from './components/Houses';
+import NavBar from './components/NavBar';
 import MediaCard from './components/spare';
 import RecipeReviewCard from './components/spare1';
 
@@ -15,6 +16,8 @@ class App extends React.Component {
 
   render() {
     return (
+      <div>
+      {/*<NavBar />*/}
       <Router>
       <div>
         <Switch>
@@ -27,6 +30,7 @@ class App extends React.Component {
         </Switch>
       </div>
       </Router>
+      </div>
     );
   }
 }

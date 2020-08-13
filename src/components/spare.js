@@ -4,6 +4,7 @@ import Forms from './FormsCharacter';
 
 const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
 
+
 const Characters = () => {
 
 	const [charDetails, setCharDetails] = useState([]);
@@ -33,7 +34,7 @@ const Characters = () => {
 			setCharDetails(arr);
 		}
 		click_ref.current = getCharacters;
-	},[])
+	},[]);
 
   return (
     <div>
