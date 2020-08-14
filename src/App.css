@@ -59,3 +59,32 @@
 	margin: 0 auto;
 }
 
+.character_search{
+	margin-top: 5%;
+}
+
+.characters{
+	padding-top: 5%;
+}
+
+.spells{
+	padding-top: 5%;
+}
+
+.navbar-icon{
+	height: 50px;
+}
+
+.home-header{
+	width: 100vw;
+	height: 40vh;
+}
+
+.home-background-image{
+}
+
+.home-intro{
+	margin: 5%;
+	max-width: 400px;
+	padding: 1%;
+}

@@ -18,14 +18,18 @@ import Box from '@material-ui/core/Box';
 import GryffindorImg from '../images/gryffindor_img.jpg';
 import RavenclawImg from '../images/ravenclaw_img.jpg';
 import HufflepuffImg from '../images/hufflepuff_img.jpg';
-import SlytherinImg from '../images/slytherin_img.jpg'
+import SlytherinImg from '../images/slytherin_img.jpg';
+import Image from '../images/hp5.jpg';
+import Tada from 'react-reveal/Tada';
+import Fade from 'react-reveal/Fade';
+import Flash from 'react-reveal/Flash';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300, 
   },
   media: {
-    height: 200,
+    height: 400,
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -40,6 +44,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/*const BackgroundImage = {
+  width: "100%",
+  height: "100%",
+  backgroundImage: `url(${Image})`,
+  backgroundSize: 'cover',
+};*/
+
 const Houses = () => {
 
   const classes = useStyles();
@@ -52,14 +63,18 @@ const Houses = () => {
   return (
     <div>
     	<h1 className="Houses_title">Hogwarts Houses</h1>
+      {/*<div style={BackgroundImage}>*/}
     	<h2 className="Houses_subtitle">House systems</h2>
       <Card className="Houses_intro">
+      <Tada>
     	<p>Houses at Hogwarts were both the living and learning communities for its students. 
     	  Each year's group of students in the same House shares the same dormitory and many classes. 
     	  The houses compete throughout the school year, by earning and losing points for behaviour.
     	  The House with the most points wins the House Cup. Each House also has its own Quidditch team 
     	  that competes for the Inter-House Quidditch Cup. These two competitions breed rivalries between the Houses,
-    	  the greatest of which is that between Gryffindor and Slytherin.</p>
+    	  the greatest of which is that between Gryffindor and Slytherin.
+      </p>
+      </Tada>
     	</Card>
 
       <Card className={classes.root} className="Card_css">

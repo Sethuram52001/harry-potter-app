@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from './components/Home';
 import SortingHat from './components/SortingHat';
 import Characters from './components/Characters';
 import Spells from './components/Spells';
@@ -17,10 +18,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      {/*<NavBar />*/}
       <Router>
       <div>
+        <NavBar />
         <Switch>
+          {/*<Route path="/" excat component={Home} />*/}
+          <Route path="/home" excat component={Home} />
           <Route path="/sortingHat" excat component={SortingHat} />
           <Route path="/characters" excat component={Characters} />
           <Route path="/spells" excat component={Spells} />
