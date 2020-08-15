@@ -28,6 +28,7 @@ const Spells = () => {
 	const [spellName, setSpellName] = useState('');
 	const [spellType, setSpellType] = useState('');
 	const [spellEffect, setSpellEffect] = useState('');
+	const [spellCard, setSpellCard] = useState(false);
 	const classes = useStyles();
 
 	async function getSpells(e){
@@ -63,8 +64,7 @@ const Spells = () => {
     	<Fade right>
     	<Forms getSpells={getSpells} ></Forms>
     	</Fade>
-    	{/*<img src={Image} />*/}
-    	<Fade left>
+    	<Fade left >
     	<Card className={classes.root} className="Spells_card">
     	<p>Spell: {spellName}</p>
     	<p>Type: {spellType}</p>

@@ -17,42 +17,48 @@ const BackgroundImage = {
 const NavigationBar = () => {
   return (
     <div>
-    <Navbar bg="light" variant="light" >
-        <Navbar.Brand href="#home" style={BackgroundImage} >
-            {/*<img className="navbar-icon" src={ Image } />*/}
+      <Navbar bg="dark" variant="dark" expand="lg" >
+        <Navbar.Brand style={BackgroundImage} >
         </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-        <Nav.Link href="home">Home</Nav.Link>
-        <Nav.Link href="characters">Characters</Nav.Link>
-        <Nav.Link href="spells">Spells</Nav.Link>
-        <Nav.Link href="houses">Houses</Nav.Link>
-        <Nav.Link href="sortingHat">Sortin Hat</Nav.Link>
+        <Nav.Link>
+          <Link to='/home'>Home</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to='/characters'>Characters</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to='/spells'>Spells</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to='/houses'>Houses</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to='/sortingHat'>Sorting Hat</Link>
+        </Nav.Link>
         </Nav>
-    </Navbar>
+        </Navbar.Collapse>
+      </Navbar>
     </div>
   )
 }
 
 export default NavigationBar;
 
+{/*<img className="navbar-icon" src={ Image } />*/}
 /*
-        <nav>
-            <h3>NavBar</h3>
-            <ul>
-                <li><Link to="/characters" >Characters</Link></li>
-                <li><Link to='/spells'>Spells</Link></li>
-                <li><Link to='/houses'>Houses</Link></li>
-                <li><Link to='/sortingHat'>Sorting Hat</Link></li>              
-            </ul>
-        </nav>
+      <nav>
+        <h3>Logo</h3>
+        <ul className="nav-links">
+          <Link style={navStyle} to='/about'>
+            <li>About</li>
+          </Link>
+          <Link style={navStyle} to='/shop'>
+            <li>Shop</li>
+          </Link>
+        </ul>
+      </nav>
+
 */
- /* <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="announcements.html">Announcements</a>
-      <a class="nav-item nav-link" href="winners-page.html">Winners</a>
-      <a class="nav-item nav-link" href="registration-page.html">Registration</a>
-      <a class="nav-item nav-link navbar-right" href="#">Login</a>
-      <!--<li class="navbar-right"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
-    </div>
-  </div>*/

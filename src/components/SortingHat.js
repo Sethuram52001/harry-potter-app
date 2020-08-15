@@ -4,10 +4,13 @@ import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import sorting_hat_img from '../images/sorting-hat-1.jpg';
 import Sorting_hall from '../Sorting_hall.jpg';
-import Image from '../images/hp4.png';
+import Image from '../images/original.jpg';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 const api_url = `https://www.potterapi.com/v1/sortingHat`;
 
@@ -25,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 const BackgroundImage = {
   width: "100%",
-  height: "720px",
-  backgroundImage: `url(${ sorting_hat_img })`,
+  height: "800px",
+  backgroundImage: `url(${ Image })`,
   backgroundSize: 'cover',
 };
 
@@ -35,12 +38,14 @@ const SortingHat = () => {
 	const classes = useStyles();
 	const click_ref = useRef(null);
 	const [house, setHouse] = useState("");
+  const [houseset, setHouseset] = useState(false);
 	const arguement_description = 'Slytherin';
 
 	useEffect(() =>{
 		async function getHouse(){
 			const data = await fetch(api_url).then(api_call => api_call.json());
 			setHouse(data.toLocaleString());
+      setHouseset(true);
 		}
 		click_ref.current = getHouse;
 	},[])
@@ -49,13 +54,26 @@ const SortingHat = () => {
     <div>
         <h1>Sorting Hat</h1>
         <div style={ BackgroundImage }>
-    	{/*<img className="sorting_hat_img" src={sorting_hat_img} alt="sorting hat" />*/}
-    	<Box>
+        <Card className="sortingHat-intro">
+        <p>Sorting Hat : Hmm, difficult. VERY difficult. Plenty of courage, I see. Not a bad mind, either. There's talent, oh yes. And a thirst to prove yourself. But where to put you?</p>
+        <p>Harry : Not Slytherin. Not Slytherin.</p>
+        <p>Sorting Hat : Not Slytherin, eh? Are you sure? You could be great, you know. It's all here in your head. And Slytherin will help you on the way to greatness, there's no doubt about that. No?</p>
+        <p>Harry : Please, please. Anything but Slytherin, anything but Slytherin.</p>
+        <p>Sorting Hat : Well if you're sure, better be... GRYFF! But a wait minute you are the chosen one to beat the Slytherin, and you carry a part of his soul. And if you're sorted into Slytherin, Severus may treat you a little better, so better be a SLYTHERIN!!</p>
+        </Card>
+        <Card className="sortingHat-intro">
+        <p>Sortin Hat : So, what's up with you? You seem very excited to get started with your journey in Hogwarts!!</p>
+        </Card>
+    	  <Box>
     		<Button variant="contained" className="sortButton"  className={`${classes.buttonStyle}`} onClick={() => click_ref.current()}>
     			Sort
     		</Button>
-    	</Box>
-    	<p>{house}</p>
+    	  </Box>
+        <Zoom right when={houseset}>
+        <Card className="sortingHat-card">
+    	   <p>Better be... {house} !!!</p>
+        </Card>
+        </Zoom>
         </div>
     </div>
   )
@@ -63,30 +81,3 @@ const SortingHat = () => {
 
 export default SortingHat;
 
-/*
-        <AppBar>
-            <Typography variant="h3" align="center" color="inherit">
-                Scroll to Hide App Bar
-            </Typography>
-        </AppBar>
-*/
-
-/*
-var a= ["Or perhaps in Slytherin", "You’ll make your real friends", "Those cunning folk use any means", "To achieve their ends."];
-
-function description(arguement_description){
-	if(arguement_description === "Slytherin")
-	{
-		return a;
-	}
-}
-*/
-
-/*
-async function gethouse(){ 
-	const data = await fetch(api_url).then(api_call => api_call.json());
-	console.log(data.toLocaleString());
-}
-
-<button onClick={gethouse}>click</button>
-*/

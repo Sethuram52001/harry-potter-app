@@ -22,7 +22,6 @@ class App extends React.Component {
       <div>
         <NavBar />
         <Switch>
-          {/*<Route path="/" excat component={Home} />*/}
           <Route path="/home" excat component={Home} />
           <Route path="/sortingHat" excat component={SortingHat} />
           <Route path="/characters" excat component={Characters} />

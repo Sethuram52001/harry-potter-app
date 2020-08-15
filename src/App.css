@@ -56,7 +56,8 @@
 }
 
 .sortButton{
-	margin: 0 auto;
+	margin: 1%;
+	margin-left: 0;
 }
 
 .character_search{
@@ -78,13 +79,29 @@
 .home-header{
 	width: 100vw;
 	height: 40vh;
+	margin-bottom: 0%;
 }
 
 .home-background-image{
+	margin: 0;
 }
 
 .home-intro{
 	margin: 5%;
 	max-width: 400px;
 	padding: 1%;
+}
+
+.sortingHat-card{
+	max-width: 150px;
+	min-width: 150px;
+	min-height: 50px;
+	text-align: center;
+	padding: 1%;
+	margin: 1%;
+	margin-left: 0;
+}
+
+.sortingHat-intro{
+	max-width: 300px;
 }
