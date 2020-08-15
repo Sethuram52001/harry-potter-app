@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.be25dac4.chunk.css",
+    "main.js": "/static/js/main.741597be.chunk.js",
+    "main.js.map": "/static/js/main.741597be.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5c17c5fa.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5c17c5fa.js.map",
+    "static/css/2.11829350.chunk.css": "/static/css/2.11829350.chunk.css",
+    "static/js/2.6422cccb.chunk.js": "/static/js/2.6422cccb.chunk.js",
+    "static/js/2.6422cccb.chunk.js.map": "/static/js/2.6422cccb.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.dc2eded039b7d969c0a98d3e361a5dd3.js": "/precache-manifest.dc2eded039b7d969c0a98d3e361a5dd3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/static/css/2.11829350.chunk.css.map",
+    "static/css/main.be25dac4.chunk.css.map": "/static/css/main.be25dac4.chunk.css.map",
+    "static/js/2.6422cccb.chunk.js.LICENSE.txt": "/static/js/2.6422cccb.chunk.js.LICENSE.txt",
+    "static/media/Sorting_hall.jpg": "/static/media/Sorting_hall.01514cb6.jpg",
+    "static/media/harry-potter-characters.jpg": "/static/media/harry-potter-characters.da149205.jpg",
+    "static/media/hogwarts.jpg": "/static/media/hogwarts.c4a704dd.jpg",
+    "static/media/hp3.jpg": "/static/media/hp3.2b6df549.jpg",
+    "static/media/hp5.jpg": "/static/media/hp5.669136b8.jpg",
+    "static/media/hp6.jpg": "/static/media/hp6.4b5f2c43.jpg",
+    "static/media/original.jpg": "/static/media/original.894c13f5.jpg",
+    "static/media/ravenclaw_img.jpg": "/static/media/ravenclaw_img.f7991065.jpg",
+    "static/media/sorting-hat-1.jpg": "/static/media/sorting-hat-1.9d9af0f0.jpg",
+    "static/media/the-wizarding-world-of-harry-potter.png": "/static/media/the-wizarding-world-of-harry-potter.6c07c6d2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5c17c5fa.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.6422cccb.chunk.js",
+    "static/css/main.be25dac4.chunk.css",
+    "static/js/main.741597be.chunk.js"
+  ]
+}
