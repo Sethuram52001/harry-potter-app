@@ -3,7 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import Forms from './FormsSpell';
-import Image from '../images/hp6.jpg'; 
+import Image from '../images/hp6.jpg';
+import hpBackground from '../images/hp-background1.png';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
@@ -12,15 +13,20 @@ const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300, 
+  },
+  image: { 
+  width: "100%",
+  height: "720px",
+  padding: "5%",
+  [theme.breakpoints.up('lg')]:{backgroundImage: `url(${Image})`},
+  [theme.breakpoints.down('md')]:{
+    backgroundImage: `url(${hpBackground})`,
+    width: "100%",
+  },
+  backgroundSize: 'cover',  
   }
 }));
 
-const BackgroundImage = {
-  width: "100%",
-  height: "720px",
-  backgroundImage: `url(${Image})`,
-  backgroundSize: 'cover',
-};
 
 const Spells = () => {
 
@@ -60,9 +66,9 @@ const Spells = () => {
   return (
     <div>
     	<h1>Spells</h1>
-    	<div style={BackgroundImage} className="spells">
+    	<div className="spells" className={classes.image}>{/*style={BackgroundImage}*/}
     	<Fade right>
-    	<Forms getSpells={getSpells} ></Forms>
+    	<Forms getSpells={getSpells} className="spell-search" ></Forms>
     	</Fade>
     	<Fade left >
     	<Card className={classes.root} className="Spells_card">
@@ -81,3 +87,11 @@ export default Spells;
 /*
    	<button onClick={getSpells}>click</button>
 */
+
+
+/*const BackgroundImage = {
+  width: "100%",
+  height: "720px",
+  backgroundImage: `url(${Image})`,
+  backgroundSize: 'cover',
+};*/

@@ -22,13 +22,13 @@ class App extends React.Component {
       <div>
         <NavBar />
         <Switch>
-          <Route path="/home" excat component={Home} />
-          <Route path="/sortingHat" excat component={SortingHat} />
-          <Route path="/characters" excat component={Characters} />
-          <Route path="/spells" excat component={Spells} />
-          <Route path="/houses" excat component={Houses} />
-          <Route path="/spare" excat component={MediaCard} />
-          <Route path="/spare1" excat component={RecipeReviewCard} />
+          <Route path="/" exact component={Home} />
+          <Route path="/sortingHat" exact component={SortingHat} />
+          <Route path="/characters" exact component={Characters} />
+          <Route path="/spells" exact component={Spells} />
+          <Route path="/houses" exact component={Houses} />
+          <Route path="/spare" exact component={MediaCard} />
+          <Route path="/spare1" exact component={RecipeReviewCard} />
         </Switch>
       </div>
       </Router>

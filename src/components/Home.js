@@ -2,21 +2,36 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Image from '../images/the-wizarding-world-of-harry-potter.png';
 import HogwartsImage from '../images/hogwarts.jpg';
+import hogwartsimage from '../images/hp.jpg';
+import harryImage from '../images/harry.jpg';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import Fade from 'react-reveal/Fade';
 import LightSpeed from 'react-reveal/LightSpeed';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-const BackgroundImage = {
+/*const BackgroundImage = {
   width: "100%",
   height: "900px",
   backgroundImage: `url(${HogwartsImage})`,
   backgroundSize: 'cover',
-};
+  margin: "0",
+};*/
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300, 
+  },
+  image: {
+  width: "100%",
+  height: "900px",
+  [theme.breakpoints.up('lg')]:{backgroundImage: `url(${HogwartsImage})`},
+  [theme.breakpoints.down('md')]:{
+    backgroundImage: `url(${harryImage})`,
+    width: "100%",
+  },
+  backgroundSize: 'cover',
+  margin: "0",    
   }
 }));
 
@@ -46,9 +61,9 @@ const Home = () => {
   return (
     <div>
     	<h1>
-    		<img className="home-header" src={Image} />
+    		<img className="home-header-image" src={Image} />
     	</h1>
-    	<div style={BackgroundImage} className="home-background-image">
+    	<div className="home-background-image" className={classes.image}>{/*style= {{backgroundImage: `url(${HogwartsImage})`}} style= {BackgroundImage}*/}
     	<LightSpeed left opposite when={show}>
     		<Card className={classes.root} className="home-intro" >
     		<p>Welcome to my tiny little piece of Wizarding World of Harry Potter!</p>

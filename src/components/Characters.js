@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import HarryPotterCharacters from '../images/harry-potter-characters.jpg';
 import Image from '../images/hp3.jpg';
+import hpBackground from '../images/hpBackground1.png';
 import Slide from 'react-reveal/Slide';
 
 const api_key = '$2a$10$UHNOpXzWjg7g2VTELvBbU.LrImDHAKrF18HqgVM.BYY64TTdQx3nW'; 
@@ -14,15 +15,19 @@ var arr = [];
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300, 
-  }
-}));
-
-const BackgroundImage = {
+  },
+  image:{
   width: "100%",
   height: "800px",
-  backgroundImage: `url(${Image})`,
-  backgroundSize: 'cover',
-};
+  padding: "5%",
+  [theme.breakpoints.up('lg')]:{backgroundImage: `url(${Image})`},
+  [theme.breakpoints.down('md')]:{
+    backgroundImage: `url(${hpBackground})`,
+    width: "100%",
+  },
+  backgroundSize: 'cover'
+  }
+}));
 
 const Characters = () => {
 
@@ -34,12 +39,9 @@ const Characters = () => {
  	async function getCharacters(e) {
 		e.preventDefault();
 		arr.length = 0;
-		//const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}\&name=Albus Dumbledore`;
 		const characters = e.target.elements.character.value;
 		const api_url = `https://www.potterapi.com/v1/characters?key=${api_key}&name=${characters}`;
 		const data = await fetch(api_url).then(api_call => api_call.json()).catch((error)=>{console.log(error);});
-		//const api_call = await fetch(api_url);
-		//const data = await api_call.json();
 		console.log(data);
 		arr.push(data[0].name);
 		data[0].role ? arr.push(data[0].role) : arr.push("Not available");
@@ -63,14 +65,14 @@ const Characters = () => {
 
   return (
     <div>
-    	<h1>Characters page</h1>
-    	<div style={ BackgroundImage } className="characters">
+    	<h1 className="characters_title">Characters</h1>
+    	<div className="characters" className={classes.image}>{/*style={ BackgroundImage }*/}
     	{/*<div style={ BackgroundImage }>*/}
         {/*<img src={HarryPotterCharacters} />*/}
         <Slide left>
         <Forms getCharacters={ getCharacters } className="character_search" ></Forms>
         </Slide>
-        <Slide right>
+      <Slide right>
     	<Card className={classes.root} className="Characters_card">	
     	<p>Name: {name}</p>
     	<p>Role: {array[1]}</p>
@@ -131,3 +133,10 @@ wand: "Elder, 15", th
 	console.log(data[0].wand);
 	console.log(data[0].house);
 */
+
+/*const BackgroundImage = {
+  width: "100%",
+  height: "800px",
+  backgroundImage: `url(${Image})`,
+  backgroundSize: 'cover',
+};*/

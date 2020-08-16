@@ -8,6 +8,7 @@ import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
 import sorting_hat_img from '../images/sorting-hat-1.jpg';
 import Sorting_hall from '../Sorting_hall.jpg';
+import hpBackground from '../images/hpBackground1.png';
 import Image from '../images/original.jpg';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
@@ -24,14 +25,25 @@ const useStyles = makeStyles((theme) => ({
     height: 48,
     padding: '0 30px',
   },
+  image:{
+    width: "100%",
+    height: "800px",
+    backgroundImage: `url(${ Image })`,
+    [theme.breakpoints.up('lg')]:{backgroundImage: `url(${Image})`},
+    [theme.breakpoints.down('md')]:{
+    backgroundImage: `url(${hpBackground})`,
+    width: "100%",
+    },
+    backgroundSize: "cover",
+  }
 }));
 
-const BackgroundImage = {
+/*const BackgroundImage = {
   width: "100%",
   height: "800px",
   backgroundImage: `url(${ Image })`,
   backgroundSize: 'cover',
-};
+};*/
 
 const SortingHat = () => {
 
@@ -52,9 +64,9 @@ const SortingHat = () => {
 
   return (
     <div>
-        <h1>Sorting Hat</h1>
-        <div style={ BackgroundImage }>
-        <Card className="sortingHat-intro">
+        <h1 className="sortingHat-title">Sorting Hat</h1>
+        <div className={classes.image} >
+        <Card className="sortingHat-intro-harry">
         <p>Sorting Hat : Hmm, difficult. VERY difficult. Plenty of courage, I see. Not a bad mind, either. There's talent, oh yes. And a thirst to prove yourself. But where to put you?</p>
         <p>Harry : Not Slytherin. Not Slytherin.</p>
         <p>Sorting Hat : Not Slytherin, eh? Are you sure? You could be great, you know. It's all here in your head. And Slytherin will help you on the way to greatness, there's no doubt about that. No?</p>
