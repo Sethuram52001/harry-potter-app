@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.be25dac4.chunk.css",
-    "main.js": "/static/js/main.741597be.chunk.js",
-    "main.js.map": "/static/js/main.741597be.chunk.js.map",
+    "main.css": "/static/css/main.9fde5772.chunk.css",
+    "main.js": "/static/js/main.ef2ea0b4.chunk.js",
+    "main.js.map": "/static/js/main.ef2ea0b4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5c17c5fa.js",
     "runtime-main.js.map": "/static/js/runtime-main.5c17c5fa.js.map",
     "static/css/2.11829350.chunk.css": "/static/css/2.11829350.chunk.css",
-    "static/js/2.6422cccb.chunk.js": "/static/js/2.6422cccb.chunk.js",
-    "static/js/2.6422cccb.chunk.js.map": "/static/js/2.6422cccb.chunk.js.map",
+    "static/js/2.12196049.chunk.js": "/static/js/2.12196049.chunk.js",
+    "static/js/2.12196049.chunk.js.map": "/static/js/2.12196049.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.dc2eded039b7d969c0a98d3e361a5dd3.js": "/precache-manifest.dc2eded039b7d969c0a98d3e361a5dd3.js",
+    "precache-manifest.dc91c614cf57d846c8705a979a21580d.js": "/precache-manifest.dc91c614cf57d846c8705a979a21580d.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.11829350.chunk.css.map": "/static/css/2.11829350.chunk.css.map",
-    "static/css/main.be25dac4.chunk.css.map": "/static/css/main.be25dac4.chunk.css.map",
-    "static/js/2.6422cccb.chunk.js.LICENSE.txt": "/static/js/2.6422cccb.chunk.js.LICENSE.txt",
+    "static/css/main.9fde5772.chunk.css.map": "/static/css/main.9fde5772.chunk.css.map",
+    "static/js/2.12196049.chunk.js.LICENSE.txt": "/static/js/2.12196049.chunk.js.LICENSE.txt",
     "static/media/Sorting_hall.jpg": "/static/media/Sorting_hall.01514cb6.jpg",
     "static/media/harry-potter-characters.jpg": "/static/media/harry-potter-characters.da149205.jpg",
+    "static/media/harry.jpg": "/static/media/harry.ed9377d3.jpg",
     "static/media/hogwarts.jpg": "/static/media/hogwarts.c4a704dd.jpg",
+    "static/media/hp-background1.png": "/static/media/hp-background1.a0512d18.png",
+    "static/media/hp.jpg": "/static/media/hp.38fd6d7c.jpg",
     "static/media/hp3.jpg": "/static/media/hp3.2b6df549.jpg",
     "static/media/hp5.jpg": "/static/media/hp5.669136b8.jpg",
     "static/media/hp6.jpg": "/static/media/hp6.4b5f2c43.jpg",
@@ -28,8 +31,8 @@
   "entrypoints": [
     "static/js/runtime-main.5c17c5fa.js",
     "static/css/2.11829350.chunk.css",
-    "static/js/2.6422cccb.chunk.js",
-    "static/css/main.be25dac4.chunk.css",
-    "static/js/main.741597be.chunk.js"
+    "static/js/2.12196049.chunk.js",
+    "static/css/main.9fde5772.chunk.css",
+    "static/js/main.ef2ea0b4.chunk.js"
   ]
 }
